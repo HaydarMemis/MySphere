@@ -22,157 +22,30 @@
             background-color: var(--bg-color);
             color: var(--text-color);
         }
-        header {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            padding: 1rem;
-            background-color: var(--header-bg);
-            color: var(--text-color);
+        main {
+            padding: 2rem;
         }
-        nav {
-            display: flex;
-            align-items: center;
+        section {
+            margin-bottom: 2rem;
         }
-        nav ul {
-            display: flex;
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-        nav ul li {
-            margin-right: 1rem;
-        }
-        nav ul li a {
-            color: var(--text-color);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-        }
-        nav ul li a:hover {
-            color: var(--bg-color);
-            background-color: var(--accent-color);
-        }
-        #profil {
-            display: flex;
-            gap: 1rem;
-        }
-        #profil a {
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-        }
-        #profil a:first-child {
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-        }
-        #profil a:last-child {
-            background-color: var(--secondary-color);
-            color: var(--bg-color);
-        }
-        #profil a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        .menu-icon {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text-color);
-        }
-        .sidebar {
-            position: fixed;
-            top: 0;
-            right: -300px;
-            width: 300px;
-            height: 100%;
-            background-color: var(--header-bg);
-            box-shadow: -2px 0 5px rgba(0,0,0,0.3);
-            transition: right 0.3s ease;
-            z-index: 1000;
-        }
-        .sidebar.open {
-            right: 0;
-        }
-        .sidebar-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-            background-color: var(--bg-color);
-            border-bottom: 1px solid var(--text-color);
-        }
-        .close-btn {
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text-color);
-        }
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        .sidebar ul li {
-            padding: 1rem;
-            border-bottom: 1px solid var(--text-color);
-        }
-        .sidebar ul li a {
-            color: var(--text-color);
-            text-decoration: none;
-            display: block;
-            transition: all 0.3s ease;
-        }
-        .sidebar ul li a:hover {
+        h1, h2 {
             color: var(--accent-color);
-            padding-left: 10px;
         }
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-            }
-            .menu-icon {
-                display: block;
-            }
+        footer {
+            background-color: var(--header-bg);
+            color: var(--text-color);
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+        .social-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            margin: 0 0.5rem;
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#anasayfa">Ana Sayfa</a></li>
-                <li><a href="#notlar">Notlar</a></li>
-                <li><a href="#gunluk">Günlük</a></li>
-                <li><a href="#projeler">Projeler</a></li>
-                <li><a href="#github">GitHub</a></li>
-                <li><a href="#kisisel-veriler">Kişisel Veriler</a></li>
-                <li><a href="#finansal-yonetim">Finans</a></li>
-            </ul>
-            <div id="profil">
-                <a href="#giris">Giriş Yap</a>
-                <a href="#kayit">Kayıt Ol</a>
-            </div>
-            <div class="menu-icon">&#9776;</div>
-        </nav>
-    </header>
-
-    <div class="sidebar">
-        <div class="sidebar-header">
-            <h3>Menü</h3>
-            <span class="close-btn">&times;</span>
-        </div>
-        <ul>
-            <li><a href="#anasayfa">Ana Sayfa</a></li>
-            <li><a href="#notlar">Notlar</a></li>
-            <li><a href="#gunluk">Günlük</a></li>
-            <li><a href="#projeler">Projeler</a></li>
-            <li><a href="#github">GitHub</a></li>
-            <li><a href="#kisisel-veriler">Kişisel Veriler</a></li>
-            <li><a href="#finansal-yonetim">Finans</a></li>
-        </ul>
-    </div>
+    <header id="header"></header>
 
     <main>
         <section id="intro">
@@ -226,19 +99,11 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/header.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const menuIcon = document.querySelector('.menu-icon');
-            const sidebar = document.querySelector('.sidebar');
-            const closeBtn = document.querySelector('.close-btn');
-
-            menuIcon.addEventListener('click', function() {
-                sidebar.classList.add('open');
-            });
-
-            closeBtn.addEventListener('click', function() {
-                sidebar.classList.remove('open');
-            });
+            const header = document.getElementById('header');
+            header.innerHTML = Header();
         });
     </script>
 </body>
